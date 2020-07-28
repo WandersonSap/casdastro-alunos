@@ -1,0 +1,50 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="ovly.fiori_28.cadastro_de_alunos.controller.Detalhe">
+	<App>
+		<pages>
+			<Page title="{i18n>PageDetalhes}" showNavButton="true" navButtonPress="onBack">
+				<content>
+					<ObjectHeader xmlns="sap.m" title="{path: 'FirstName', formatter: '.toUpper'} {LastName}" id="header0" intro="{Id}" icon="sap-icon://person-placeholder">
+						<attributes>
+							<ObjectAttribute text="{path:'BirthDate', type: 'sap.ui.model.type.DateTime', formatOptions: {UTC: true} }" id="attribute0" title="Nascimento"/>
+							<ObjectAttribute text="{UserName}" id="attribute1" title="Usuário"/>
+						</attributes>
+					</ObjectHeader>
+					<Panel xmlns="sap.m" width="auto" id="panel0" expandable="true">
+						<headerToolbar>
+							<Toolbar id="toolbar1">
+								<Title text="Dados Administrativos"/>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<core:Fragment xmlns:core="sap.ui.core" fragmentName="ovly.fiori_28.cadastro_de_alunos.view.Detalhe_Form" type="XML" id="form0"/>
+						</content>
+					</Panel>
+					<Panel xmlns="sap.m" width="auto" id="panel1" expandable="true">
+						<headerToolbar>
+							<Toolbar id="toolbar2">
+								<Title text="Competências"/>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<List items="Skill" noDataText="Drop list items here" id="list0">
+								<items>
+									<StandardListItem type="Navigation" title="{Name}"/>
+								</items>
+							</List>
+						</content>
+					</Panel>
+				</content>
+				<footer>
+					<Toolbar width="100%" id="toolbar1_1595699163029">
+						<content>
+							<Button xmlns="sap.m" text="Deletar" id="button2" icon="sap-icon://delete" type="Reject"/>
+							<ToolbarSpacer id="spacer2"/>
+							<Button xmlns="sap.m" text="Editar" id="button3" icon="sap-icon://edit"/>
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

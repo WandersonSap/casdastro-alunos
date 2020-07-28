@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns:core='sap.ui.core'  xmlns:m="sap.m" xmlns="sap.ui.layout.form" >
+	<Form editable="true" id="form0">
+		
+		<formContainers>
+			<FormContainer id="container0">
+				<formElements>
+					<FormElement label="Label" id="element0">
+						<fields>
+							<m:Text text="a" />
+						</fields>
+					</FormElement>
+					<FormElement label="Label" id="element2">
+						<fields>
+							<m:Text text="a" />
+						</fields>
+					</FormElement>
+				</formElements>
+			</FormContainer>
+			<FormContainer id="container1">
+				<formElements>
+					<FormElement label="Label" id="element1">
+						<fields>
+							<m:Text text="a" />
+						</fields>
+					</FormElement>
+					<FormElement label="Label" id="element3">
+						<fields>
+							<m:Text text="a" />
+						</fields>
+					</FormElement>
+				</formElements>
+			</FormContainer>
+		</formContainers>
+		<layout>
+			<ResponsiveGridLayout id="layout0"/>
+		</layout>
+	</Form>
+</core:FragmentDefinition>
