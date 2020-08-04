@@ -78,9 +78,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -92,20 +94,21 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [{
-				"name": "listagem",
-				"pattern": "",
-				"target": [
-					"Lista"
-				]
-			}, 
-			{
-				"name": "exibir",
-				"pattern": "aluno/{codigo}",
-				"target": [
-					"Detalhe"
-				]
-			}
+			"routes": [
+				{
+					"name": "listagem",
+					"pattern": "",
+					"target": [
+						"Lista"
+					]
+				},
+				{
+					"name": "exibir",
+					"pattern": "aluno/{codigo}",
+					"target": [
+						"Detalhe"
+					]
+				}
 			],
 			"targets": {
 				"Lista": {
@@ -114,8 +117,11 @@
 				"Detalhe": {
 					"viewName": "Detalhe"
 				}
-
 			}
 		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zt4828ovly/webapp",
+		"_version": "1.1.0"
 	}
 }

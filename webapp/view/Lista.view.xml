@@ -4,8 +4,8 @@
 		<pages>
 			<Page id="page" title="Cadastro de Alunos" showNavButton="true">
 				<content>
-					<SearchField placeholder="Nome" search="onSearch"/>
-					<List items="{/Students}" noDataText="Nenhum aluno encontrado" itemPress="onItemPress" growing="true" growingScrollToLoad="true" growingThreshold="10">
+					<SearchField placeholder="Nome" search=".onSearch"/>
+					<List id="list" items="{/Students}" noDataText="Nenhum aluno encontrado" itemPress="onItemPress" growing="true" growingScrollToLoad="true" growingThreshold="10">
 						<items>
 							<StandardListItem title="{FirstName} {LastName}" info="{UserName}" icon="sap-icon://customer" type="Navigation"/>
 						</items>

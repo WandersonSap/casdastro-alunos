@@ -1,6 +1,8 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator",
+], function (Controller, Filter, FilterOperator) {
 	"use strict";
 
 	return Controller.extend("ovly.fiori_28.cadastro_de_alunos.controller.Lista", {
@@ -14,10 +16,19 @@ sap.ui.define([
 
 		},
 
-		onSearch: function (oControlEvent) {
-			var oSearchField = oControlEvent.getSource();
-			var sValue = oSearchField.getValue();
-			sap.m.MessageToast.show(sValue);
+		onSearch: function (oEvent) {
+			// add filter for search
+			
+			var aFilters = [];
+			var sQuery = oEvent.getSource().getValue();
+			if (sQuery && sQuery.length > 0) {
+				var filter = new Filter("FirstName", sap.ui.model.FilterOperator.Contains, sQuery);
+				aFilters.push(filter);
+			}
+			// update list binding
+			var oList = this.byId("list");
+			var oBinding = oList.getBinding("items");
+			oBinding.filter(aFilters, "Application");
 		},
 
 		onAdd: function () {
