@@ -78,11 +78,9 @@
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -94,28 +92,34 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [
-				{
-					"name": "listagem",
-					"pattern": "",
-					"target": [
-						"Lista"
-					]
-				},
-				{
-					"name": "exibir",
-					"pattern": "aluno/{codigo}",
-					"target": [
-						"Detalhe"
-					]
-				}
-			],
+			"routes": [{
+				"name": "listagem",
+				"pattern": "",
+				"target": [
+					"Lista"
+				]
+			}, {
+				"name": "cadastrar",
+				"pattern": "aluno",
+				"target": [
+					"Inserir"
+				]
+			}, {
+				"name": "exibir",
+				"pattern": "aluno/{codigo}",
+				"target": [
+					"Detalhe"
+				]
+			}],
 			"targets": {
 				"Lista": {
 					"viewName": "Lista"
 				},
 				"Detalhe": {
 					"viewName": "Detalhe"
+				},
+				"Inserir": {
+					"viewName": "Inserir"
 				}
 			}
 		}

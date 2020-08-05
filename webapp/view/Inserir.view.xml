@@ -1,0 +1,33 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ovly.fiori_28.cadastro_de_alunos.controller.Inserir">
+	<App>
+		<pages>
+			<Page title="{i18n>PageCadastro}" showNavButton="true" navButtonPress="onBack">
+				<content>
+					<form:SimpleForm editable="true" title="Cadastro de Alunos" layout="ResponsiveLayout" >
+						<Label text="Nome"/>
+						<Input id="FirstName" value=""/>
+						
+						<Label text="Sobrenome"/>
+						<Input id="LastName" value=""/>
+						
+						<Label text="Username"/>
+						<Input id="UserName" value=""/>
+						
+						<Label text="Data de Nascimento"/>
+						<DatePicker id="DtNasc"/>
+
+					</form:SimpleForm>
+				</content>
+			<footer>
+			    <Toolbar width="100%" id="toolbar1">
+			        <content>
+			            <ToolbarSpacer id="spacer0"/>
+			            <Button text="Inserir" id="button0" type="Accept"  press="onSave"/>
+			            <Button text="Cancelar" id="button1" type="Reject" press="OnCancel"/>
+			        </content>
+			    </Toolbar>
+			</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

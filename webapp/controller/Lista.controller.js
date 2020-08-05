@@ -32,7 +32,7 @@ sap.ui.define([
 		},
 
 		onAdd: function () {
-			sap.m.MessageToast.show("apertou");
+			this.getOwnerComponent().getRouter().navTo("cadastrar");
 		},
 
 		onItemPress: function (oEvent) {
