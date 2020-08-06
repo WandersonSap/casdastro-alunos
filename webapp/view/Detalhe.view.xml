@@ -38,7 +38,7 @@
 				<footer>
 					<Toolbar width="100%" id="toolbar1_1595699163029">
 						<content>
-							<Button xmlns="sap.m" text="Deletar" id="button2" icon="sap-icon://delete" type="Reject"/>
+							<Button xmlns="sap.m" text="Deletar" id="button2" icon="sap-icon://delete" type="Reject" press="onDelete"/>
 							<ToolbarSpacer id="spacer2"/>
 							<Button xmlns="sap.m" text="Editar" id="button3" icon="sap-icon://edit"/>
 						</content>

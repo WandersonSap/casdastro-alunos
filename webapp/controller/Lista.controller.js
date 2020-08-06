@@ -2,7 +2,8 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-], function (Controller, Filter, FilterOperator) {
+	"sap/ui/model/json/JSONModel"
+], function (Controller, Filter, FilterOperator, JSONModel) {
 	"use strict";
 
 	return Controller.extend("ovly.fiori_28.cadastro_de_alunos.controller.Lista", {
@@ -13,12 +14,22 @@ sap.ui.define([
 		 * @memberOf ovly.fiori_28.cadastro_de_alunos.view.Lista
 		 */
 		onInit: function () {
+			this._oViewModel = new JSONModel({
+				isUpdate: true,
+				id: "",
+				nome: "",
+				sobrenome: "",
+				username: "",
+				dtnasc: ""
+			});
+			this.getView().setModel(this._oViewModel, "Form");
+
 
 		},
 
 		onSearch: function (oEvent) {
 			// add filter for search
-			
+
 			var aFilters = [];
 			var sQuery = oEvent.getSource().getValue();
 			if (sQuery && sQuery.length > 0) {
@@ -31,7 +42,32 @@ sap.ui.define([
 			oBinding.filter(aFilters, "Application");
 		},
 
-		onAdd: function () {
+		onAdd: function (oEvent) {
+			var oFormModel = this.getView().getModel("Form"); // JSONModel
+			//limpar o modelo auxiliar
+			oFormModel.setProperty("/isUpdate", false);
+			oFormModel.setProperty("/id", "");
+			oFormModel.setProperty("/nome", "");
+			oFormModel.setProperty("/sobrenome", "");
+			oFormModel.setProperty("/username", "");
+			oFormModel.setProperty("/dtnasc", "");
+			this.getOwnerComponent().getRouter().navTo("cadastrar");
+		},
+
+		onModify: function (oEvent) {
+			debugger;
+			var oFormModel = this.getView().getModel("Form"); // JSONModel
+		
+			// item que foi clicado
+			var oItem = oEvent.getSource();
+			
+			// Contexto do item clicado (armazena os dados do back end)
+			var oAlunoContext = oItem.getBindingContext();
+
+			oFormModel.setProperty("/isUpdate", true);
+			oFormModel.setProperty("/id", oAlunoContext.getProperty("Id"));
+			oFormModel.setProperty("/nome", oAlunoContext.getProperty("FirstName"));
+			oFormModel.setProperty("/sobrenome", oAlunoContext.getProperty("LastName"));
 			this.getOwnerComponent().getRouter().navTo("cadastrar");
 		},
 

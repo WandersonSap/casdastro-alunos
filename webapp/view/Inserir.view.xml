@@ -4,17 +4,20 @@
 			<Page title="{i18n>PageCadastro}" showNavButton="true" navButtonPress="onBack">
 				<content>
 					<form:SimpleForm editable="true" title="Cadastro de Alunos" layout="ResponsiveLayout" >
+					    <Label text="ID" visible="{Form>/isUpdate}" />
+                        <Text text="{Form>/id}" visible="{Form>/isUpdate}" />	
+						
 						<Label text="Nome"/>
-						<Input id="FirstName" value=""/>
+						<Input value="{Form>/nome}" id="FirstName" />
 						
 						<Label text="Sobrenome"/>
-						<Input id="LastName" value=""/>
+						<Input value="{Form>/sobrenome}" id="LastName" />
 						
 						<Label text="Username"/>
-						<Input id="UserName" value=""/>
+						<Input value="{Form>/username}" id="UserName" />
 						
 						<Label text="Data de Nascimento"/>
-						<DatePicker id="DtNasc"/>
+						<DatePicker id="DtNasc" value="{Form>/dtnasc}"/>
 
 					</form:SimpleForm>
 				</content>
@@ -22,8 +25,9 @@
 			    <Toolbar width="100%" id="toolbar1">
 			        <content>
 			            <ToolbarSpacer id="spacer0"/>
-			            <Button text="Inserir" id="button0" type="Accept"  press="onSave"/>
-			            <Button text="Cancelar" id="button1" type="Reject" press="OnCancel"/>
+			            <Button text="Inserir"    id="button0"   type="Accept"  press="onSave" visible="{= ${Form>/isUpdate} ? false : true }"/>
+						<Button text="Atualizar"  id="button1"   type="Accept"  press="onSave" visible="{= ${Form>/isUpdate} ? true  : false }"/>
+			            <Button text="Cancelar"   id="button2"   type="Reject"  press="OnCancel"/>
 			        </content>
 			    </Toolbar>
 			</footer>
