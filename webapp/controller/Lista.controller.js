@@ -14,16 +14,6 @@ sap.ui.define([
 		 * @memberOf ovly.fiori_28.cadastro_de_alunos.view.Lista
 		 */
 		onInit: function () {
-			this._oViewModel = new JSONModel({
-				isUpdate: true,
-				id: "",
-				nome: "",
-				sobrenome: "",
-				username: "",
-				dtnasc: ""
-			});
-			this.getView().setModel(this._oViewModel, "Form");
-
 
 		},
 
@@ -44,8 +34,10 @@ sap.ui.define([
 
 		onAdd: function (oEvent) {
 			var oFormModel = this.getView().getModel("Form"); // JSONModel
+			var titulo = this.getView().getModel("i18n").getResourceBundle().getText("PageCadastro");
 			//limpar o modelo auxiliar
 			oFormModel.setProperty("/isUpdate", false);
+			oFormModel.setProperty("/titulo", titulo );
 			oFormModel.setProperty("/id", "");
 			oFormModel.setProperty("/nome", "");
 			oFormModel.setProperty("/sobrenome", "");
@@ -56,18 +48,21 @@ sap.ui.define([
 
 		onModify: function (oEvent) {
 			debugger;
-			var oFormModel = this.getView().getModel("Form"); // JSONModel
-		
 			// item que foi clicado
 			var oItem = oEvent.getSource();
 			
 			// Contexto do item clicado (armazena os dados do back end)
 			var oAlunoContext = oItem.getBindingContext();
-
+			
+			var oFormModel = this.getView().getModel("Form"); // JSONModel
+		    var titulo = this.getView().getModel("i18n").getResourceBundle().getText("PageAtualizar"); 
 			oFormModel.setProperty("/isUpdate", true);
+			oFormModel.setProperty("/titulo", titulo );
 			oFormModel.setProperty("/id", oAlunoContext.getProperty("Id"));
 			oFormModel.setProperty("/nome", oAlunoContext.getProperty("FirstName"));
 			oFormModel.setProperty("/sobrenome", oAlunoContext.getProperty("LastName"));
+			oFormModel.setProperty("/username", oAlunoContext.getProperty("UserName"));
+			oFormModel.setProperty("/dtnasc", oAlunoContext.getProperty("BirthDate"));
 			this.getOwnerComponent().getRouter().navTo("cadastrar");
 		},
 

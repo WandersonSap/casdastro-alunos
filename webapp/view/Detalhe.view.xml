@@ -6,7 +6,7 @@
 				<content>
 					<ObjectHeader xmlns="sap.m" title="{path: 'FirstName', formatter: '.toUpper'} {LastName}" id="header0" intro="{Id}" icon="sap-icon://person-placeholder">
 						<attributes>
-							<ObjectAttribute text="{path:'BirthDate', type: 'sap.ui.model.type.DateTime', formatOptions: {UTC: true} }" id="attribute0" title="Nascimento"/>
+							<ObjectAttribute text="{path:'BirthDate', type: 'sap.ui.model.type.Date', formatOptions: {UTC: true} }" id="attribute0" title="Nascimento"/>
 							<ObjectAttribute text="{UserName}" id="attribute1" title="Usuário"/>
 						</attributes>
 					</ObjectHeader>
@@ -27,7 +27,7 @@
 							</Toolbar>
 						</headerToolbar>
 						<content>
-							<List items="Skill" noDataText="Drop list items here" id="list0">
+							<List items="{/Skills}" noDataText="Drop list items here" id="list0">
 								<items>
 									<StandardListItem type="Navigation" title="{Name}"/>
 								</items>
